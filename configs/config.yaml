@@ -1,0 +1,83 @@
+project:
+  name: "Gamatechno AI Support Copilot"
+  version: "2.0.0"
+  seed: 42
+
+paths:
+  kb_docs_dir: "data/kb_docs"
+  tickets_dir: "data/tickets"
+  train_tickets: "data/tickets/train_tickets.csv"
+  val_tickets: "data/tickets/val_tickets.csv"
+  test_tickets: "data/tickets/test_tickets.csv"
+  ood_tickets: "data/tickets/ood_trap_tickets.csv"
+  active_learning_queue: "data/active_learning_queue.csv"
+  models_dir: "models"
+  baseline_model_path: "models/baseline_tfidf_lgbm.joblib"
+  lora_model_dir: "models/indobert_lora"
+  oof_thresholds_path: "models/oof_thresholds.json"
+  rag_index_dir: "models/rag_index"
+  reports_dir: "reports"
+
+data_generation:
+  total_tickets: 1200
+  total_users: 240
+  train_size: 840
+  val_size: 180
+  test_size: 180
+  ood_trap_size: 30
+  typo_injection_prob: 0.12
+  drop_explicit_error_code_prob: 0.35
+
+triage:
+  backbone_name: "indobenchmark/indobert-base-p1"
+  max_length: 128
+  categories:
+    - "Hardware_POS"
+    - "Billing_Payment"
+    - "Academic_Portal"
+    - "Warranty_Claim"
+  urgencies:
+    - "Low"
+    - "Medium"
+    - "High"
+    - "Critical"
+  lora:
+    r: 16
+    lora_alpha: 32
+    lora_dropout: 0.10
+    target_modules:
+      - "query"
+      - "key"
+      - "value"
+      - "dense"
+  loss:
+    category_label_smoothing: 0.05
+    urgency_focal_gamma: 2.0
+  training:
+    batch_size: 16
+    learning_rate: 0.0003
+    weight_decay: 0.01
+    epochs: 8
+    warmup_ratio: 0.10
+  calibration:
+    critical_threshold_min: 0.20
+    critical_threshold_max: 0.60
+    fbeta_beta: 1.5
+
+rag:
+  dense_model_name: "intfloat/multilingual-e5-small"
+  reranker_model_name: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  reranker_high_accuracy_model: "BAAI/bge-reranker-v2-m3"
+  embedding_dim: 384
+  top_k_bm25: 15
+  top_k_dense: 15
+  top_k_rerank_input: 15
+  top_k_final: 3
+  rrf_k: 60
+  weights_with_code:
+    w_lex: 0.55
+    w_sem: 0.45
+  weights_semantic_only:
+    w_lex: 0.35
+    w_sem: 0.65
+  confidence_threshold_tau: 0.65

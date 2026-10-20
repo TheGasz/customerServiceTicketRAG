@@ -1,0 +1,1 @@
+timestamp,ticket_id,user_id,sanitized_message,predicted_category,predicted_urgency,top_retrieval_confidence,escalation_reason,agent_corrected_category,agent_corrected_urgency,agent_notes
