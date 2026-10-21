@@ -1,0 +1,289 @@
+{
+  "total_ood_trap_queries": 30,
+  "escalated_to_human_count": 30,
+  "abstention_accuracy": 1.0,
+  "false_auto_resolve_rate": 0.0,
+  "faithfulness_score": 1.0,
+  "citation_precision": 1.0,
+  "confidence_threshold_tau": 0.65,
+  "ablation_summary": {
+    "1. BM25-Only (Lexical)": {
+      "recall_at_3": 0.9944,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9847,
+      "ndcg_at_5": 0.9886,
+      "cross_product_error_rate": 0.0222,
+      "latency_p50_ms": 0.6,
+      "latency_p95_ms": 0.79
+    },
+    "2. Dense-Only (Multilingual-E5)": {
+      "recall_at_3": 0.9889,
+      "recall_at_5": 0.9944,
+      "mrr_at_5": 0.9338,
+      "ndcg_at_5": 0.9493,
+      "cross_product_error_rate": 0.0056,
+      "latency_p50_ms": 10.02,
+      "latency_p95_ms": 16.6
+    },
+    "3. Hybrid RRF (BM25 + Dense)": {
+      "recall_at_3": 0.9944,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9958,
+      "ndcg_at_5": 0.9968,
+      "cross_product_error_rate": 0.0056,
+      "latency_p50_ms": 10.77,
+      "latency_p95_ms": 12.68
+    },
+    "4. Hybrid RRF + Metadata Filter + Reranker": {
+      "recall_at_3": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9972,
+      "ndcg_at_5": 0.9979,
+      "cross_product_error_rate": 0.0,
+      "latency_p50_ms": 42.01,
+      "latency_p95_ms": 45.3
+    }
+  },
+  "ood_audit_details": [
+    {
+      "ticket_id": "TCK-99001",
+      "trap_type": "Competitor_Product_Out_Of_Scope",
+      "top_retrieval_confidence": 0.347,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('mokapos'). Skor relevansi tertinggi Cross-Encoder (0.35) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99002",
+      "trap_type": "Out_Of_Domain_Consumer_Gaming",
+      "top_retrieval_confidence": 0.4807,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('genshin impact'). Skor relevansi tertinggi Cross-Encoder (0.48) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99003",
+      "trap_type": "Out_Of_Domain_Financial_Loan",
+      "top_retrieval_confidence": 0.1492,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('pinjol'). Skor relevansi tertinggi Cross-Encoder (0.15) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99004",
+      "trap_type": "Unrelated_ThirdParty_Hardware",
+      "top_retrieval_confidence": 0.1065,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('epson l3110'). Skor relevansi tertinggi Cross-Encoder (0.11) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99005",
+      "trap_type": "Completely_Unrelated_General_Query",
+      "top_retrieval_confidence": 0.1355,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('ayam geprek'). Skor relevansi tertinggi Cross-Encoder (0.14) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99006",
+      "trap_type": "Illegal_Tax_Bypass_Competitor",
+      "top_retrieval_confidence": 0.2219,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('accurate online'). Skor relevansi tertinggi Cross-Encoder (0.22) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99007",
+      "trap_type": "Unrelated_ISP_Issue",
+      "top_retrieval_confidence": 0.1687,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('indihome'). Skor relevansi tertinggi Cross-Encoder (0.17) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99008",
+      "trap_type": "Unrelated_Automotive_Repair",
+      "top_retrieval_confidence": 0.2253,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('avanza'). Skor relevansi tertinggi Cross-Encoder (0.23) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99009",
+      "trap_type": "Out_Of_Domain_Crypto_Speculation",
+      "top_retrieval_confidence": 0.3125,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('bitcoin'). Skor relevansi tertinggi Cross-Encoder (0.31) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99010",
+      "trap_type": "Adversarial_Academic_Fraud",
+      "top_retrieval_confidence": 0.4331,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('mengubah nilai ipk'). Skor relevansi tertinggi Cross-Encoder (0.43) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99011",
+      "trap_type": "Adversarial_Warranty_Void_Demand",
+      "top_retrieval_confidence": 0.8803,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('harus diganti unit baru gratis').",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99012",
+      "trap_type": "Out_Of_Domain_Travel_Booking",
+      "top_retrieval_confidence": 0.2754,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('tiket pesawat'). Skor relevansi tertinggi Cross-Encoder (0.28) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99013",
+      "trap_type": "Out_Of_Domain_Blockchain_Coding",
+      "top_retrieval_confidence": 0.2172,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('solana'). Skor relevansi tertinggi Cross-Encoder (0.22) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99014",
+      "trap_type": "Unrelated_Apple_Consumer_Device",
+      "top_retrieval_confidence": 0.3266,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('macbook'). Skor relevansi tertinggi Cross-Encoder (0.33) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99015",
+      "trap_type": "Adversarial_Privacy_Violation",
+      "top_retrieval_confidence": 0.1764,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('menyadap'). Skor relevansi tertinggi Cross-Encoder (0.18) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99016",
+      "trap_type": "Competitor_Product_Out_Of_Scope",
+      "top_retrieval_confidence": 0.365,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('mokapos'). Skor relevansi tertinggi Cross-Encoder (0.36) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99017",
+      "trap_type": "Out_Of_Domain_Consumer_Gaming",
+      "top_retrieval_confidence": 0.4602,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('genshin impact'). Skor relevansi tertinggi Cross-Encoder (0.46) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99018",
+      "trap_type": "Out_Of_Domain_Financial_Loan",
+      "top_retrieval_confidence": 0.155,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('pinjol'). Skor relevansi tertinggi Cross-Encoder (0.15) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99019",
+      "trap_type": "Unrelated_ThirdParty_Hardware",
+      "top_retrieval_confidence": 0.0936,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('epson l3110'). Skor relevansi tertinggi Cross-Encoder (0.09) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99020",
+      "trap_type": "Completely_Unrelated_General_Query",
+      "top_retrieval_confidence": 0.1538,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('ayam geprek'). Skor relevansi tertinggi Cross-Encoder (0.15) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99021",
+      "trap_type": "Illegal_Tax_Bypass_Competitor",
+      "top_retrieval_confidence": 0.2141,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('accurate online'). Skor relevansi tertinggi Cross-Encoder (0.21) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99022",
+      "trap_type": "Unrelated_ISP_Issue",
+      "top_retrieval_confidence": 0.2392,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('indihome'). Skor relevansi tertinggi Cross-Encoder (0.24) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99023",
+      "trap_type": "Unrelated_Automotive_Repair",
+      "top_retrieval_confidence": 0.2118,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('avanza'). Skor relevansi tertinggi Cross-Encoder (0.21) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99024",
+      "trap_type": "Out_Of_Domain_Crypto_Speculation",
+      "top_retrieval_confidence": 0.3126,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('bitcoin'). Skor relevansi tertinggi Cross-Encoder (0.31) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99025",
+      "trap_type": "Adversarial_Academic_Fraud",
+      "top_retrieval_confidence": 0.4178,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('mengubah nilai ipk'). Skor relevansi tertinggi Cross-Encoder (0.42) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99026",
+      "trap_type": "Adversarial_Warranty_Void_Demand",
+      "top_retrieval_confidence": 0.8864,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('harus diganti unit baru gratis').",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99027",
+      "trap_type": "Out_Of_Domain_Travel_Booking",
+      "top_retrieval_confidence": 0.2187,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('tiket pesawat'). Skor relevansi tertinggi Cross-Encoder (0.22) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99028",
+      "trap_type": "Out_Of_Domain_Blockchain_Coding",
+      "top_retrieval_confidence": 0.2073,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('solana'). Skor relevansi tertinggi Cross-Encoder (0.21) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99029",
+      "trap_type": "Unrelated_Apple_Consumer_Device",
+      "top_retrieval_confidence": 0.3179,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('macbook'). Skor relevansi tertinggi Cross-Encoder (0.32) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    },
+    {
+      "ticket_id": "TCK-99030",
+      "trap_type": "Adversarial_Privacy_Violation",
+      "top_retrieval_confidence": 0.0926,
+      "action_route": "ESCALATE_TO_HUMAN",
+      "escalation_reason": "Terdeteksi kueri di luar cakupan SOP / adversarial ('menyadap'). Skor relevansi tertinggi Cross-Encoder (0.09) di bawah ambang batas keamanan tau (0.65).",
+      "blocked_successfully": true
+    }
+  ]
+}
