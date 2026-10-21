@@ -1,1 +1,1 @@
-"""Test suite for Gamatechno AI Support Copilot."""
+"""Test suite for Enterprise AI Support Copilot."""

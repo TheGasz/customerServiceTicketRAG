@@ -1,4 +1,4 @@
-"""Dual-View 3-Tab Streamlit Interface for Gamatechno AI Support Copilot."""
+"""Dual-View 3-Tab Streamlit Interface for Enterprise AI Support Copilot."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from src.api.main import execute_five_stage_pipeline, load_pipeline_components
 from src.api.schemas import TicketRequest
 
 st.set_page_config(
-    page_title="Gamatechno AI Support Copilot",
+    page_title="Enterprise AI Support Copilot",
     page_icon="🛡️",
     layout="wide",
 )
@@ -30,7 +30,7 @@ PRESET_SCENARIOS: Dict[str, Dict[str, str]] = {
         "ticket_id": "TCK-10402",
         "user_id": "USR-0101",
         "message": (
-            "Halo Tim Support Gamatechno, mesin kasir GT-POS200 nomor seri SN-44821 di cabang "
+            "Halo Tim Technical Support, mesin kasir GT-POS200 nomor seri SN-44821 di cabang "
             "kami gagal inisialisasi modul scanner QRIS dan NFC dengan kode error E-402. Lampu LED "
             "pemindai kedip merah 3 kali. Mohon panduan kalibrasinya hari ini. Kontak PIC kasir: "
             "0812-3456-7890 atau kasir.utama@tokomitra.co.id (NIK 3404011205880001)."
@@ -40,7 +40,7 @@ PRESET_SCENARIOS: Dict[str, Dict[str, str]] = {
         "ticket_id": "TCK-10412",
         "user_id": "USR-0102",
         "message": (
-            "Siang admin SIDIG, perangkat kami dengan nomor seri SN-77319 ketumpahan air kopi dan "
+            "Siang admin After-Sales, perangkat kami dengan nomor seri SN-77319 ketumpahan air kopi dan "
             "stiker segel hologram garansi sempat robek waktu dibuka teknisi toko, di portal muncul "
             "status RMA-12. Bagaimana ketentuan klaim garansi dan prosedur perbaikannya? Hubungi WA "
             "6285711223344."
@@ -68,10 +68,10 @@ PRESET_SCENARIOS: Dict[str, Dict[str, str]] = {
 
 
 def main() -> None:
-    """Render the 3-tab Gamatechno AI Support Copilot Streamlit application."""
+    """Render the 3-tab Enterprise AI Support Copilot Streamlit application."""
     state = get_cached_pipeline()
 
-    st.title("🛡️ Gamatechno AI Support Copilot")
+    st.title("🛡️ Enterprise AI Support Copilot")
     st.caption(
         "End-to-End Multi-Task Ticket Triage (IndoBERT PEFT/LoRA + Focal Loss + OOF Calibration) "
         "& Metadata-Filtered Grounded Hybrid RAG Pipeline"

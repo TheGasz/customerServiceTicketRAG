@@ -61,7 +61,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(
-    title="Gamatechno AI Support Copilot API",
+    title="Enterprise AI Support Copilot API",
     description=(
         "End-to-End Multi-Task Ticket Triage (IndoBERT PEFT/LoRA + Focal Loss + OOF Calibration) "
         "& Metadata-Filtered Grounded Hybrid RAG Service."

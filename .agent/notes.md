@@ -1,4 +1,4 @@
-# Project Notes: Gamatechno AI Support Copilot
+# Project Notes: Enterprise AI Support Copilot
 
 ## Status: COMPLETED END-TO-END (Tahap 1 s.d. Tahap 4)
 

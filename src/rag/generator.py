@@ -38,7 +38,7 @@ class GroundedRAGGenerator:
         # Case 1: Low retrieval confidence or Out-of-Domain -> strict abstention (refuse to hallucinate)
         if action_route == "ESCALATE_TO_HUMAN" and top_retrieval_confidence < self.tau:
             suggested_reply = (
-                f"Halo Pelanggan Yth., terima kasih telah menghubungi Layanan Bantuan PT Gamatechno Indonesia "
+                f"Halo Pelanggan Yth., terima kasih telah menghubungi Layanan Bantuan Teknis Enterprise "
                 f"(Tiket `{ticket_id}`). Berdasarkan pemeriksaan sistem keamanan pengetahuan kami, permintaan atau "
                 f"kendala yang Anda sampaikan berada di luar cakupan prosedur operasi standar (SOP) otomatis kami "
                 f"(Confidence Score: {top_retrieval_confidence:.2f} < {self.tau:.2f}). Demi menghindari informasi teknis "

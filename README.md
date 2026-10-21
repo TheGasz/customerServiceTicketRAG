@@ -1,6 +1,6 @@
-# 🛡️ Gamatechno AI Support Copilot: End-to-End Ticket Triage (IndoBERT PEFT/LoRA) & Grounded Hybrid RAG Pipeline
+# 🛡️ Enterprise AI Support Copilot: End-to-End Ticket Triage (IndoBERT PEFT/LoRA) & Grounded Hybrid RAG Pipeline
 
-**Target Posisi & Instansi:** AI untuk Customer/Technical Support — **PT Gamatechno Indonesia**  
+**Domain Sistem:** AI Engineering untuk *Enterprise Customer & Technical Support*  
 **Penyusun:** Bagas Adjie Pamungkas ([@TheGasz](https://github.com/TheGasz))  
 **Versi Blueprint:** v2.0 Production Blueprint
 

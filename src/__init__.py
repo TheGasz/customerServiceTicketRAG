@@ -1,1 +1,1 @@
-"""Gamatechno AI Support Copilot source package."""
+"""Enterprise AI Support Copilot source package."""

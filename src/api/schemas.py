@@ -1,4 +1,4 @@
-"""Strict Pydantic v2 data schemas for Gamatechno AI Support Copilot API."""
+"""Strict Pydantic v2 data schemas for Enterprise AI Support Copilot API."""
 
 from __future__ import annotations
 
