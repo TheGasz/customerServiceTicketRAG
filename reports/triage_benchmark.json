@@ -1,0 +1,162 @@
+{
+  "model_source": "indobert_lora_trained",
+  "entity_exact_match_f1": 1.0,
+  "oof_calibration": {
+    "temperature": 0.6,
+    "critical_threshold": 0.495,
+    "val_critical_fbeta_1_5": 0.9848,
+    "val_critical_precision": 0.9524,
+    "val_critical_recall": 1.0
+  },
+  "models": {
+    "baseline_tfidf_lightgbm": {
+      "category_macro_f1": 0.7713,
+      "urgency_macro_f1": 0.6259,
+      "critical_pr_auc": 0.6745,
+      "critical_precision": 0.8824,
+      "critical_recall": 0.5357,
+      "critical_f1": 0.6667
+    },
+    "indobert_lora_argmax": {
+      "category_macro_f1": 0.9818,
+      "urgency_macro_f1": 0.9644,
+      "critical_pr_auc": 1.0,
+      "critical_precision": 0.9655,
+      "critical_recall": 1.0,
+      "critical_f1": 0.9825
+    },
+    "indobert_lora_oof_calibrated": {
+      "category_macro_f1": 0.9818,
+      "urgency_macro_f1": 0.9644,
+      "critical_pr_auc": 1.0,
+      "critical_precision": 0.9655,
+      "critical_recall": 1.0,
+      "critical_f1": 0.9825
+    }
+  },
+  "slicing_analysis": {
+    "Tiket Formal (>15 Kata)": {
+      "sample_count": 123,
+      "baseline_macro_f1": 0.6912,
+      "indobert_lora_macro_f1": 0.9781
+    },
+    "Tiket Pendek (<12 Kata)": {
+      "sample_count": 27,
+      "baseline_macro_f1": 0.7779,
+      "indobert_lora_macro_f1": 0.95
+    },
+    "Tiket Slang/Typo": {
+      "sample_count": 57,
+      "baseline_macro_f1": 0.6979,
+      "indobert_lora_macro_f1": 0.9547
+    },
+    "Tiket Dengan Kode Error Eksplisit": {
+      "sample_count": 115,
+      "baseline_macro_f1": 0.7023,
+      "indobert_lora_macro_f1": 0.9721
+    },
+    "Tiket Tanpa Kode Error": {
+      "sample_count": 65,
+      "baseline_macro_f1": 0.6861,
+      "indobert_lora_macro_f1": 0.9756
+    },
+    "Tiket Keluhan Multi-Masalah": {
+      "sample_count": 12,
+      "baseline_macro_f1": 0.5691,
+      "indobert_lora_macro_f1": 0.9571
+    }
+  },
+  "formal_vs_slang_gap": 0.0234,
+  "top_10_worst_predictions": [
+    {
+      "ticket_id": "TCK-00865",
+      "sanitized_message": "Yth. Tim Dukungan Operasional Gamatechno, cetak struk pembayaran di mesin kasir macet total disertai bunyi bip peringata...",
+      "true_category": "Hardware_POS",
+      "pred_category": "Hardware_POS",
+      "true_urgency": "Medium",
+      "pred_urgency": "Critical",
+      "loss": 2.648
+    },
+    {
+      "ticket_id": "TCK-00425",
+      "sanitized_message": "Yth. Tim Dukungan Operasional Gamatechno, kegagalan sinkronisasi token otentikasi CAS/OAuth2 pada portal akademik yang m...",
+      "true_category": "Academic_Portal",
+      "pred_category": "Academic_Portal",
+      "true_urgency": "Medium",
+      "pred_urgency": "High",
+      "loss": 1.0891
+    },
+    {
+      "ticket_id": "TCK-00076",
+      "sanitized_message": "Yth. Tim Dukungan Operasional Gamatechno, mohon kirim perintah cold-start modul GNSS dan pembaruan A-GPS karena posisi a...",
+      "true_category": "Hardware_POS",
+      "pred_category": "Hardware_POS",
+      "true_urgency": "Medium",
+      "pred_urgency": "Low",
+      "loss": 1.0374
+    },
+    {
+      "ticket_id": "TCK-00523",
+      "sanitized_message": "Salam sejahtera, bersama tiket ini unit operasional kami melaporkan gangguan: prosedur pembatalan nomor Virtual Account ...",
+      "true_category": "Billing_Payment",
+      "pred_category": "Billing_Payment",
+      "true_urgency": "Medium",
+      "pred_urgency": "Low",
+      "loss": 0.8954
+    },
+    {
+      "ticket_id": "TCK-00423",
+      "sanitized_message": "halo gan tolong dibantu segera, pelanggan mengeluhkan servsi penggantian mianboard yang belmu rampung setelah lewat 14 h...",
+      "true_category": "Warranty_Claim",
+      "pred_category": "Warranty_Claim",
+      "true_urgency": "Medium",
+      "pred_urgency": "High",
+      "loss": 0.8846
+    },
+    {
+      "ticket_id": "TCK-00631",
+      "sanitized_message": "Halo Tim Care Gamatechno, mohon penanganan untuk permasalahan sistem berikut: pelanggan mengeluhkan servis penggantian m...",
+      "true_category": "Warranty_Claim",
+      "pred_category": "Warranty_Claim",
+      "true_urgency": "Medium",
+      "pred_urgency": "High",
+      "loss": 0.8311
+    },
+    {
+      "ticket_id": "TCK-00091",
+      "sanitized_message": "Selamat siang Layanan Pelanggan & Teknisi Gamatechno, prosedur pembatalan nomor Virtual Account lama dan penyelarasan ul...",
+      "true_category": "Billing_Payment",
+      "pred_category": "Billing_Payment",
+      "true_urgency": "Medium",
+      "pred_urgency": "Medium",
+      "loss": 0.811
+    },
+    {
+      "ticket_id": "TCK-01047",
+      "sanitized_message": "halo gan tolong dibantu segera, tiket klaim perbaikan mainboard di portal SIDIG menembus batas 14 hari kerja, bagaimana ...",
+      "true_category": "Warranty_Claim",
+      "pred_category": "Warranty_Claim",
+      "true_urgency": "Medium",
+      "pred_urgency": "High",
+      "loss": 0.7966
+    },
+    {
+      "ticket_id": "TCK-00927",
+      "sanitized_message": "halo gan tolong dibantu segera, unit pelacak kendaraan tidak mengaktifkan fitur telemetri penuh karena terjebak mode dar...",
+      "true_category": "Hardware_POS",
+      "pred_category": "Hardware_POS",
+      "true_urgency": "High",
+      "pred_urgency": "High",
+      "loss": 0.6487
+    },
+    {
+      "ticket_id": "TCK-01145",
+      "sanitized_message": "Yth. Tim Dukungan Operasional Gamatechno, gateway otentikasi SSO kampus menolak sesi login mahasiswa dan dosen setelah r...",
+      "true_category": "Academic_Portal",
+      "pred_category": "Academic_Portal",
+      "true_urgency": "Medium",
+      "pred_urgency": "Medium",
+      "loss": 0.6209
+    }
+  ]
+}
